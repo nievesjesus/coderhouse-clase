@@ -1,15 +1,17 @@
-import { useState, useEffect } from "react";
-import { Accordion, Button, Card, ListGroup } from "react-bootstrap";
+import { useState, useEffect, useMemo } from "react";
+import { Button, Card, ListGroup } from "react-bootstrap";
 
 const Item = ({ product }) => {
-    const {id, title, thumbnail, attributes, price, permalink} = product
+    const {title, thumbnail, attributes, price, permalink} = product
     const [cleanAttributes, setCleanAttributes] = useState([])
-    const whiteListAttributes = ["Marca", "Modelo"]
+    //const whiteListAttributes = ["Marca", "Modelo"]
+    const whiteListAttributes = useMemo(() =>  ["Marca", "Modelo"], []);
 
-    useEffect(() => {
-        let newAttributes = attributes.filter (attribute => whiteListAttributes.includes(attribute.name))
+    const filterAttributes = () => {
+        let newAttributes = attributes.filter(attribute => whiteListAttributes.includes(attribute.name))
         setCleanAttributes(newAttributes)
-    }, [attributes])
+    }
+    useEffect(filterAttributes, [attributes, whiteListAttributes])
 
     const goToProduct = () => {
         window.location.href = permalink
