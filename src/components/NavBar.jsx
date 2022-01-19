@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Container, Form, FormControl, InputGroup, Nav, Navbar, NavDropdown } from 'react-bootstrap';
+import { Container, Form, FormControl, InputGroup, Nav, Navbar, NavDropdown } from 'react-bootstrap';
 import CartWidget from './CartWidget';
 import Image from 'react-bootstrap/Image'
 import { Search } from 'react-bootstrap-icons';

@@ -1,4 +1,3 @@
-import { Container } from "react-bootstrap"
 import Lottie from 'react-lottie';
 import * as animationData from '../assets/animations/loading.json';
 

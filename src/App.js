@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import NavBar from './components/NavBar';
-import Product from './components/Product';
 import { getProductsFromCategory } from './services/Products';
 import ItemListContainer from './components/ItemListContainer';
 import Loading from './components/Loading';
