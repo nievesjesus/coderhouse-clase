@@ -1,8 +1,7 @@
 import { useState, useEffect } from 'react';
-import { Windows } from 'react-bootstrap-icons';
 import { useOutletContext, useParams } from 'react-router-dom';
-import { getProductsFromCategory } from '../../services/Products';
-import ItemListContainer from '../Containers/ItemListContainer';
+import { getProductsFromCategory } from '../services/Products';
+import ItemListContainer from '../components/sections/ItemListContainer';
 
 const Home = () => {
 
@@ -17,19 +16,14 @@ const Home = () => {
 
     getProductsFromCategory("MLA", "MLA1055").then(items => {
       if(mounted) {
-        if (typeof id === 'undefined') {
-          setProducts(items.results)
-          setTimeout(() => {
-            setLoading(false)
-          }, 3000)
-        }
+        setProducts(items.results)
+        setTimeout(() => {
+          setLoading(false)
+        }, 3000)
       }
     })
-    // DOC: Esto es para limpiar el componente cuando se desmonta
-    return () => {
-      mounted = false;
-    } 
-  }, [])
+    return () => mounted = false;
+  }, [id])
 
   return (
     <div>     

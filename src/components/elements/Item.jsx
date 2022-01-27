@@ -3,7 +3,7 @@ import { Button, Card, ListGroup } from "react-bootstrap";
 import { useNavigate } from 'react-router-dom';
 
 const Item = ({ product }) => {
-    const {id, title, thumbnail, attributes, price, permalink} = product
+    const {id, title, thumbnail, attributes, price} = product
     const [cleanAttributes, setCleanAttributes] = useState([])
     const whiteListAttributes = useMemo(() =>  ["Marca", "Modelo"], []);
     const navigate = useNavigate()

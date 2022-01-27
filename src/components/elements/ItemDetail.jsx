@@ -1,8 +1,6 @@
 import { Breadcrumb, Button, Card, Col, Container, Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { useState } from 'react';
-import Select from "./Select";
-import Radio from "./Radio";
 import ItemCount from "./ItemCount";
 
 const ItemDetail = ({ product }) => {

@@ -3,29 +3,10 @@ import { Container, Form, FormControl, InputGroup, Nav, Navbar, NavDropdown } fr
 import CartWidget from './CartWidget';
 import Image from 'react-bootstrap/Image'
 import { Search } from 'react-bootstrap-icons';
-import logo from '../../assets/images/logo.svg';
+import logo from '../assets/images/logo.svg';
 import { Link, NavLink } from 'react-router-dom';
-import { useState } from 'react';
 
 const NavBar = ({ categories }) => {
-
-    const [onSearch, setOnSearch ] = useState(false);
-    const [query, setOnQuery] = useState("");
-
-    const onSearchCange = (event) => {
-        event.preventDefault();
-        if (/^(?:[A-Za-z]+|\d+)$/.test(event.target.value)) {
-            console.log("letras")
-            setOnQuery(event.target.value)
-        } 
-    }
-
-    const onKeyDownSearch = (event) => {
-        let blockList = ["a", "e", "i", "o", "u"];
-        if (blockList.includes(event.key.toLowerCase())) {
-            event.preventDefault();
-        }
-    }
 
     return (
         <Navbar sticky="top" style={{ fontSize: "0.8rem", backgroundColor: "#fff159" }} variant="light" expand="lg">
@@ -34,21 +15,8 @@ const NavBar = ({ categories }) => {
                     <Form style={{ position: "relative" }} className="d-flex">
                         <InputGroup>
                             <InputGroup.Text><Search /></InputGroup.Text>
-                            <FormControl onKeyDown={onKeyDownSearch} id="inlineFormInputGroupUsername" placeholder="Buscar" />
-                        </InputGroup>     
-                        {onSearch ?
-                        <div style={{ position: "absolute", left: 0, top:36, width: 250, height: 300, backgroundColor: "white"}}>
-                            <li onClick={ () => setOnSearch(false)}>resultado </li>
-                            <li onClick={ () => setOnSearch(false)}>resultado </li>
-                            <li onClick={ () => setOnSearch(false)}>resultado </li>
-                            <li onClick={ () => setOnSearch(false)}>resultado </li>
-                            <li onClick={ () => setOnSearch(false)}>resultado </li>
-                            <li onClick={ () => setOnSearch(false)}>resultado </li>                                
-                        </div>                          
-                        :
-                        null
-                        }               
-                      
+                            <FormControl id="inlineFormInputGroupUsername" placeholder="Buscar" />
+                        </InputGroup>                  
                     </Form>                  
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
 

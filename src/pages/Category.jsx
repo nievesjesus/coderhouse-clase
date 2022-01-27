@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useOutletContext, useParams } from 'react-router-dom';
-import { getProductsFromCategory } from '../../services/Products';
-import ItemListContainer from '../Containers/ItemListContainer';
+import { getProductsFromCategory } from '../services/Products';
+import ItemListContainer from '../components/sections/ItemListContainer';
 
 const Category = () => {
 
@@ -23,6 +23,7 @@ const Category = () => {
           })          
     }
     return () => mounted = false;
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [id])
 
   return (

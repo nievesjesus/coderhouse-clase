@@ -1,14 +1,14 @@
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Home from './components/Pages/Home';
-import Error from './components/Pages/Error';
-import MainLayout from './components/Layout/MainLayout';
-import ItemDetailContainer from './components/Containers/ItemDetailContainer';
-import Offers from './components/Pages/Offerts';
-import Categories from './components/Pages/Categories';
-import Category from './components/Pages/Category';
-import History from './components/Pages/History';
+import Home from './pages/Home';
+import Error from './pages/Error';
+import MainLayout from './components/layouts/MainLayout';
+import ItemDetailContainer from './components/sections/ItemDetailContainer';
+import Offers from './pages/Offerts';
+import Categories from './pages/Categories';
+import Category from './pages/Category';
+import History from './pages/History';
 
 const App = () => {
 

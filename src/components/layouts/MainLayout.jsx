@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Outlet } from 'react-router-dom';
-import NavBar from '../Shared/NavBar';
-import Loading from '../Shared/Loading';
+import NavBar from '../elements/NavBar';
+import Loading from '../elements/Loading';
 import { getCategories } from '../../services/Products';
 
 const Layout = () => {

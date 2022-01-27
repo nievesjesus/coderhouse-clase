@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
-import { useOutletContext, useParams, useNavigate } from 'react-router-dom';
-import { getCategories, getProductsFromCategory } from '../../services/Products';
-import ItemListContainer from '../Containers/ItemListContainer';
+import { useOutletContext, useNavigate } from 'react-router-dom';
+import { getCategories } from '../services/Products';
 import { Button, Card, Col, Container, Row } from 'react-bootstrap';
 
 const Categories = () => {
@@ -22,6 +21,7 @@ const Categories = () => {
       }
     })
     return () => mounted = false;
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   return (
