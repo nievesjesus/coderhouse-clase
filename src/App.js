@@ -1,37 +1,31 @@
-import { useState, useEffect } from 'react';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import NavBar from './components/NavBar';
-import { getProductsFromCategory } from './services/Products';
-import ItemListContainer from './components/ItemListContainer';
-import Loading from './components/Loading';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Home from './components/Pages/Home';
+import Error from './components/Pages/Error';
+import MainLayout from './components/Layout/MainLayout';
+import ItemDetailContainer from './components/Containers/ItemDetailContainer';
+import Offers from './components/Pages/Offerts';
+import Categories from './components/Pages/Categories';
+import Category from './components/Pages/Category';
+import History from './components/Pages/History';
 
 const App = () => {
 
-  const [products, setProducts] = useState([])
-  const [loading, setLoading] = useState(false)
-
-  useEffect(() => {
-    let mounted = true
-    setLoading(true)
-    getProductsFromCategory("MLA", "MLA1055").then(items => {
-      if(mounted) {
-        console.log(items.results)
-        setProducts(items.results)
-        setTimeout(() => {
-          setLoading(false)
-        }, 3000)
-      }
-    })
-    return () => mounted = false;
-  }, [])
-
   return (
-    <div className="App">     
-      <NavBar />
-      <ItemListContainer products={products} />
-      {loading ? <Loading /> : null} 
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<MainLayout />} >
+          <Route index element={ <Home />} />
+          <Route path="/product/:id" element={<ItemDetailContainer />} />
+          <Route path="/offers/" element={<Offers />} />
+          <Route path="/categories/" element={<Categories />} /> 
+          <Route path="/category/:id" element={<Category />} />     
+          <Route path="/history/" element={<History />} />                              
+          <Route path="*" element={<Error />} />
+        </Route>       
+      </Routes>
+    </BrowserRouter>
   );
 }
 

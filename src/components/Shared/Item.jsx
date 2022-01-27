@@ -1,11 +1,12 @@
 import { useState, useEffect, useMemo } from "react";
 import { Button, Card, ListGroup } from "react-bootstrap";
+import { useNavigate } from 'react-router-dom';
 
 const Item = ({ product }) => {
-    const {title, thumbnail, attributes, price, permalink} = product
+    const {id, title, thumbnail, attributes, price, permalink} = product
     const [cleanAttributes, setCleanAttributes] = useState([])
-    //const whiteListAttributes = ["Marca", "Modelo"]
     const whiteListAttributes = useMemo(() =>  ["Marca", "Modelo"], []);
+    const navigate = useNavigate()
 
     const filterAttributes = () => {
         let newAttributes = attributes.filter(attribute => whiteListAttributes.includes(attribute.name))
@@ -14,7 +15,7 @@ const Item = ({ product }) => {
     useEffect(filterAttributes, [attributes, whiteListAttributes])
 
     const goToProduct = () => {
-        window.location.href = permalink
+        navigate(`/product/${id}`)
     }
     
     return (

@@ -1,5 +1,5 @@
 import { Container, Row } from "react-bootstrap";
-import ItemList from "./ItemList";
+import ItemList from "../Shared/ItemList";
 
 const ItemListContainer = ({ products }) => {
     return (
