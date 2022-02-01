@@ -5,7 +5,6 @@ import Image from 'react-bootstrap/Image'
 import { Search } from 'react-bootstrap-icons';
 import logo from '../assets/images/logo.svg';
 import { Link, NavLink } from 'react-router-dom';
-import { CartProvider } from '../../contexts/CarContext';
 
 const NavBar = ({ categories }) => {
 
@@ -42,7 +41,7 @@ const NavBar = ({ categories }) => {
                         <NavDropdown.Item href="#">Salir</NavDropdown.Item>
                     </NavDropdown>
                     <Nav.Link href="#categorias"> Mis Compras</Nav.Link>                
-                    <Nav.Link href="#link"><CartProvider><CartWidget /></CartProvider></Nav.Link>
+                    <Nav.Link href="#link"><CartWidget /></Nav.Link>
                 </Nav>
                 </Navbar.Collapse>              
             </Container>
