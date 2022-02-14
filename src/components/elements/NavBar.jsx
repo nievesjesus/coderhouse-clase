@@ -41,7 +41,7 @@ const NavBar = ({ categories }) => {
                         <NavDropdown.Item href="#">Salir</NavDropdown.Item>
                     </NavDropdown>
                     <Nav.Link href="#categorias"> Mis Compras</Nav.Link>                
-                    <Nav.Link href="#link"><CartWidget /></Nav.Link>
+                    <Nav.Link as={Link} to="/cart"><CartWidget /></Nav.Link>
                 </Nav>
                 </Navbar.Collapse>              
             </Container>

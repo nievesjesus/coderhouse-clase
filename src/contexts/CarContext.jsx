@@ -10,11 +10,7 @@ export const  CartProvider = ({ children }) => {
     }
 
     const addItem = (producto, qty) => {
-        // Usamos un spread operator, ... para hacer una copia del array y agregar un nuevo item
-        console.log(producto, qty)     
-        producto.qty = qty
-        setItems([...items, producto])
-        console.log(items)           
+        setItems([...items, {qty: qty, ...producto}])      
     }
 
     return (
