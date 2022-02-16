@@ -21,7 +21,7 @@ const Layout = () => {
     return(
         <div className="App">
             <NavBar categories={categories} />
-            <Outlet context={[setLoading]} />
+            <Outlet context={{setLoading}} />
             {loading ? <Loading /> : null}             
         </div>
     )

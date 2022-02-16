@@ -8,7 +8,7 @@ import { db } from '../firebase';
 const Home = () => {
 
   const [products, setProducts] = useState([])
-  const [setLoading] = useOutletContext();
+  const {setLoading} = useOutletContext();
   const { id } = useParams();
 
 
@@ -21,7 +21,7 @@ const Home = () => {
         setProducts(items.results)
         setTimeout(() => {
           setLoading(false)
-        }, 3000)
+        }, 1000)
       }
     })
 

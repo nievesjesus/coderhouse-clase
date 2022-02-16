@@ -1,7 +1,7 @@
 import Lottie from 'react-lottie';
-import * as animationData from '../components/assets/animations/404.json';
+import * as animationData from '../components/assets/animations/offers.json';
 
-const Error = () => {
+const Offers = () => {
 
     const defaultOptions = {
         loop: true,
@@ -20,6 +20,7 @@ const Error = () => {
                     isPaused={false}/>
         </div>
     )
+
 }
 
-export default Error;
+export default Offers

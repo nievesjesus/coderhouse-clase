@@ -5,7 +5,7 @@ import Home from './pages/Home';
 import Error from './pages/Error';
 import MainLayout from './components/layouts/MainLayout';
 import ItemDetailContainer from './components/sections/ItemDetailContainer';
-import Offers from './pages/Offerts';
+import Offers from './pages/Offers';
 import Categories from './pages/Categories';
 import Category from './pages/Category';
 import History from './pages/History';

@@ -6,7 +6,7 @@ import { Button, Card, Col, Container, Row } from 'react-bootstrap';
 const Categories = () => {
 
   const [categories, setCategories] = useState([])
-  const [setLoading] = useOutletContext();
+  const {setLoading} = useOutletContext();
   const navigate = useNavigate();
 
   useEffect(() => {

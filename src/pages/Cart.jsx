@@ -6,6 +6,8 @@ import { CheckCircle } from 'react-bootstrap-icons';
 import { CartContext } from '../contexts/CarContext';
 import { db } from '../firebase';
 import { Link } from 'react-router-dom';
+import CartItem from '../components/elements/CartItem';
+import CartEmpty from '../components/elements/CartEmptyState';
 
 const Cart = () => {
     
@@ -13,6 +15,7 @@ const Cart = () => {
     const [ success, setSuccess ] = useState(false);
     const [orderId, setOrderId] = useState("");
     const [total, setTotal] = useState(0);
+    const [isCartEmpty, setIsCartEmpty] = useState(true)
 
     // { buyer: {name, phone, email}, items: [id: title price], total}
     const checkout = () => {
@@ -65,6 +68,10 @@ const Cart = () => {
 
     }, [items]);
 
+    if (isCartEmpty) {
+        return <CartEmpty />
+    }
+
     return (
         <div className="cart_section text-xs-left" style={{position: "relative"}}>
             <Container fluid>
@@ -75,29 +82,8 @@ const Cart = () => {
                         </div>
                         <div className="cart_items">
                             <ul className="cart_list">
-                                {items.map(item => {
-                                    return <li className="cart_item clearfix">
-                                        <div className="cart_item_image"><img src={item.pictures[0].secure_url} alt="" style={{ height: 130}} /></div>
-                                        <div className="cart_item_info d-flex flex-md-row flex-column justify-content-between">
-                                            <div className="cart_item_name cart_info_col">
-                                                <div className="cart_item_title">Name</div>
-                                                <div className="cart_item_text">{item.title}</div>
-                                            </div>
-
-                                            <div className="cart_item_quantity cart_info_col">
-                                                <div className="cart_item_title">Quantity</div>
-                                                <div className="cart_item_text">{item.qty}</div>
-                                            </div>
-                                            <div className="cart_item_price cart_info_col">
-                                                <div className="cart_item_title">Price</div>
-                                                <div className="cart_item_text">${item.price}</div>
-                                            </div>
-                                            <div className="cart_item_total cart_info_col">
-                                                <div className="cart_item_title">Total</div>
-                                                <div className="cart_item_text">200</div>
-                                            </div>
-                                        </div>
-                                    </li>
+                                {items.map((item, index) => {
+                                    return <CartItem key={index} item={item} />
                                 })}
                             </ul>
                         </div>   

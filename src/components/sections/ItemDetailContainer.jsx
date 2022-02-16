@@ -5,7 +5,7 @@ import ItemDetail from '../elements/ItemDetail';
 
 const ItemDetailContainer = () => {
     const { id } = useParams();
-    const [setLoading] = useOutletContext();
+    const {setLoading} = useOutletContext();
     const [product, setProduct] = useState(null);
 
     useEffect(() => {

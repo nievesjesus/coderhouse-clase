@@ -6,7 +6,7 @@ import ItemListContainer from '../components/sections/ItemListContainer';
 const Category = () => {
 
   const [products, setProducts] = useState([])
-  const [setLoading] = useOutletContext();
+  const {setLoading} = useOutletContext();
   const { id } = useParams();
 
   useEffect(() => {
