@@ -24,7 +24,7 @@ const AddItem = () => {
         let imageUrl = ""
         if (typeof image !== 'undefined') {
             const storage = getStorage();
-            const imageName = (+new Date).toString(36);
+            const imageName = (+new Date()).toString(36);
             const storageRef = ref(storage, `items/${imageName}`);
 
             const uploadTask = await uploadBytes(storageRef, image)

@@ -64,65 +64,66 @@ const Cart = () => {
                 return (a.qty * a.price) + (b.qty * b.price)
             })
             setTotal(totalGlobal)
+            setIsCartEmpty(false)
         }
 
     }, [items]);
 
     if (isCartEmpty) {
         return <CartEmpty />
-    }
-
-    return (
-        <div className="cart_section text-xs-left" style={{position: "relative"}}>
-            <Container fluid>
-                <Row>
-                    <Col lg={{ span: 10, offset: 1}}>
-                        <div className="cart_container">    
-                            <div className="cart_title">Carrito de compras<small> ({items.length} articulos en tu carrito) </small></div>
-                        </div>
-                        <div className="cart_items">
-                            <ul className="cart_list">
-                                {items.map((item, index) => {
-                                    return <CartItem key={index} item={item} />
-                                })}
-                            </ul>
-                        </div>   
-                        <div className="order_total">
-                            <div className="order_total_content text-md-right">
-                                <div className="order_total_title">Order Total:</div>
-                                <div className="order_total_amount">${total}</div>
+    } else {
+        return (
+            <div className="cart_section text-xs-left" style={{position: "relative"}}>
+                <Container fluid>
+                    <Row>
+                        <Col lg={{ span: 10, offset: 1}}>
+                            <div className="cart_container">    
+                                <div className="cart_title">Carrito de compras<small> ({items.length} articulos en tu carrito) </small></div>
                             </div>
-                        </div>
-                        <div className="cart_buttons"> 
-                            <Button variant="primary">Continuar comprando</Button>                        
-                            <Button style={{ marginLeft: 10}} variant="success" onClick={checkout}>Finalizar compra</Button>
-                        </div>                                             
-                    </Col>
-                </Row>
-            </Container>
-
-        {success ? 
-            <div style={{ 
-                position: "absolute",
-                top: 0,
-                left: 0,
-                width: "100%",
-                height: "100v%",
-                background: "rgb(76 175 80 / 90%)",
-                textAlign: "center",
-                color: "white",
-                paddingTop: "25%"
-            }}>
-                <CheckCircle style={{ fontSize: 78}} />
-                <h1>Tu compra se ha realizado con exito</h1>
-                <p>Puedes hacer seguimiento con el siguiente id {orderId}</p>
-                <Button as={Link} to="/">Seguir comprando</Button>
+                            <div className="cart_items">
+                                <ul className="cart_list">
+                                    {items.map((item, index) => {
+                                        return <CartItem key={index} item={item} />
+                                    })}
+                                </ul>
+                            </div>   
+                            <div className="order_total">
+                                <div className="order_total_content text-md-right">
+                                    <div className="order_total_title">Order Total:</div>
+                                    <div className="order_total_amount">${total}</div>
+                                </div>
+                            </div>
+                            <div className="cart_buttons"> 
+                                <Button variant="primary">Continuar comprando</Button>                        
+                                <Button style={{ marginLeft: 10}} variant="success" onClick={checkout}>Finalizar compra</Button>
+                            </div>                                             
+                        </Col>
+                    </Row>
+                </Container>
+    
+            {success ? 
+                <div style={{ 
+                    position: "absolute",
+                    top: 0,
+                    left: 0,
+                    width: "100%",
+                    height: "100v%",
+                    background: "rgb(76 175 80 / 90%)",
+                    textAlign: "center",
+                    color: "white",
+                    paddingTop: "25%"
+                }}>
+                    <CheckCircle style={{ fontSize: 78}} />
+                    <h1>Tu compra se ha realizado con exito</h1>
+                    <p>Puedes hacer seguimiento con el siguiente id {orderId}</p>
+                    <Button as={Link} to="/">Seguir comprando</Button>
+                </div>
+            :
+                null
+            }
             </div>
-        :
-            null
-        }
-        </div>
-    );
+        );        
+    }
 }
 
 export default Cart;
